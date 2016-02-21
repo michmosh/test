@@ -10,9 +10,3 @@ function check ($data){
 check($data);
 echo "<pre>";
 print_r($data);
-
-print_r($data);
-print_r($data);
-print_r($data);
-print_r($data);
-print_r($data);
