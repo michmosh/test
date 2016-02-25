@@ -61,7 +61,7 @@ print_r($array2);
 echo "</pre>";
 
 echo 'moshiko';
-echo "<hr>"
+echo "<hr>";
 echo 'moshiko';
 
 
