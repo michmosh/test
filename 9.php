@@ -1,11 +1,21 @@
 <?php 
 echo "<h1>multi sort</h1>";
+
 $arr=[1,2,3,4,5,6,7,[1,2,3,4,5,6],8,9,10,[7,8,9]];
+
 echo "<pre>";
 print_r($arr);
 echo "</pre>";
 echo "<hr>";
+
 $arr2=[];
+
+by_refrence($arr2);
+//***  todo...  *** 
+//********
+//*****  change for loop to foreach loop so that multiSort() will work on assoc arraysd
+//***
+
 multiSort($arr2,$arr);
 
 echo "<pre>";
@@ -13,7 +23,19 @@ print_r($arr2);
 echo "</pre>";
 echo "<hr>";
 
+echo "<pre>";
+print_r(swap($arr));
+echo "</pre>";
+
+
+function by_refrence(&$arr){
+
+	$arr['mos']='moshiko';
+}
+
+
 function multiSort(&$arr2,$arr){
+
 	for($i=0;$i<count($arr);$i++){
 
 		$arr2[$i]=$arr[count($arr)-$i-1];
@@ -28,19 +50,26 @@ function multiSort(&$arr2,$arr){
 			}
 		}
 		
-
 	}
 	
 }
 
-function swap($arr,$arr2){
+//$arr=[1,2,3,4,5,6,7,[1,2,3,4,5,6],8,9,10,[7,8,9]];
 
-	$tmp=$arr[$a];
-	$arr[$a]=$arr[$a+1];
-	$arr[$a+1]=$tmp;
-	return $arr;
+function swap($arr){
 
+	for($i=0;$i<count($arr)-1;$i++){
+
+		for($j=0;$j<count($arr)-1-$i;$j++){
+
+			$tmp=$arr[$j];
+			$arr[$j]=$arr[$j+1];
+			$arr[$j+1]=$tmp;
+			
 }
-echo "<pre>";
-print_r(array_reverse($arr));
-echo "</pre>";
+		}
+		return $arr;
+		
+	}
+	
+		
