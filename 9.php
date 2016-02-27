@@ -10,13 +10,16 @@ echo "<hr>";
 
 $arr2=[];
 
-by_refrence($arr2);
+
+
 //***  todo...  *** 
 //********
 //*****  change for loop to foreach loop so that multiSort() will work on assoc arraysd
 //***
 
 multiSort($arr2,$arr);
+
+by_refrence($arr2);
 
 echo "<pre>";
 print_r($arr2);
@@ -30,7 +33,11 @@ echo "</pre>";
 
 function by_refrence(&$arr){
 
-	$arr['mos']='moshiko';
+	$mos=new stdClass();
+	$mos->name='mos';
+	$mos->age='35';
+	$mos->email='michmosh1@gmail.com';
+	array_unshift($arr, $mos);
 }
 
 
