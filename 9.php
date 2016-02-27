@@ -16,9 +16,17 @@ echo "<hr>";
 function multiSort(&$arr2,$arr){
 	for($i=0;$i<count($arr);$i++){
 
-		if(!is_array($arr[$i])){
-			$arr2[$i]=$arr[count($arr)-$i-1];
-		}	
+		$arr2[$i]=$arr[count($arr)-$i-1];
+
+		if(is_array($arr2[$i])){
+
+			for($j=0;$j<count($arr2[$i])-1;$j++){
+
+				$tmp=$arr2[$i][$j];
+				$arr2[$i][$j]=$arr2[$i][count($arr2[$i])-$j-1];
+				$arr2[$i][count($arr2[$i])-$j-1]=$tmp;
+			}
+		}
 		
 
 	}
