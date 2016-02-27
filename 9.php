@@ -4,28 +4,25 @@ $arr=[1,2,3,4,5,6,7,[1,2,3,4,5,6],8,9,10,[7,8,9]];
 echo "<pre>";
 print_r($arr);
 echo "</pre>";
-
+echo "<hr>";
 $arr2=[];
-
+multiSort($arr2,$arr);
 
 echo "<pre>";
-print_r(multiSort($arr,$arr2));
+print_r($arr2);
 echo "</pre>";
+echo "<hr>";
 
-function multiSort($arr,$arr2){
+function multiSort(&$arr2,$arr){
 	for($i=0;$i<count($arr);$i++){
 
-		if(is_array($i)){
-
-			for($j=0;$j<count($i);$j++){
-				$arr2[$i][$j]=$arr[$i][count($i)-$j];
-			}
-
-		}else{
+		if(!is_array($arr[$i])){
 			$arr2[$i]=$arr[count($arr)-$i-1];
-		}
+		}	
+		
+
 	}
-	return $arr2;
+	
 }
 
 function swap($arr,$arr2){
